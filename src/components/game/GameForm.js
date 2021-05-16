@@ -19,16 +19,12 @@ export const GameForm = () => {
         numberOfPlayers: 1,
         gameTypeId: 0
     })
-
-    const [isLoading, setIsLoading] = useState(true)
     /*
         Get game types on initialization so that the <select>
         element presents game type choices to the user.
     */
     useEffect(() => {
         getGameTypes()
-
-        setIsLoading(false)
     }, [])
 
     const handleControlledInputChange = (event) => {
@@ -41,8 +37,6 @@ export const GameForm = () => {
         if (currentGame.title === "" && currentGame.maker === "" && currentGame.gameTypeId === 0) {
             window.alert("Please complete all fields")
         } else {
-            setIsLoading(true);
-
             // const game = {
             //     title: currentGame.title,
             //     maker: currentGame.maker,
@@ -78,6 +72,7 @@ export const GameForm = () => {
                     />
                 </div>
             </fieldset>
+
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="maker">Maker: </label>
@@ -88,6 +83,7 @@ export const GameForm = () => {
                     />
                 </div>
             </fieldset>
+
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="skillLevel">Skill Level 1-10: </label>
@@ -97,6 +93,7 @@ export const GameForm = () => {
                     />
                 </div>
             </fieldset>
+
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="numberOfPlayers">Number of Players: </label>
@@ -106,6 +103,7 @@ export const GameForm = () => {
                     />
                 </div>
             </fieldset>
+
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="gameTypeId">Game Type: </label>
@@ -119,8 +117,8 @@ export const GameForm = () => {
                     </select>
                 </div>
             </fieldset>
+
             <button className="btn btn-2 btn-primary"
-                // disabled={isLoading}
                 onClick={evt => {
                     evt.preventDefault()
                     handleSaveGame()
