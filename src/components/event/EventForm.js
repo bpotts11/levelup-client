@@ -26,8 +26,7 @@ export const EventForm = () => {
         setEvent(newEvent)
     }
 
-    const handleSaveEvent = event => {
-        event.preventDefault()
+    const handleSaveEvent = () => {
         if (currentEvent.gameId === 0 && currentEvent.startDate === "" && currentEvent.description === "") {
             window.alert("Please complete all fields")
         } else {
